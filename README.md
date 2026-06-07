@@ -1,60 +1,61 @@
-# WHMCS-Module-Jellyfin
-
-This module enables your company to offer public media services to customers through Jellyfin accounts.
-It facilitates the creation of customer accounts on a pre-configured Jellyfin server, allowing for the sale of various media packages at different prices.
-The module requires a pre-installed Jellyfin server and uses the Jellyfin API for client account management. It also supports multiple languages.
-Administrators can suspend, terminate, or unsuspend users, change user passwords, and more, while clients can manage their devices and libraries.
-
-## Jellyfin module **[WHMCS](https://puqcloud.com/link.php?id=77)**
-
-#####  [Order now](https://puqcloud.com/whmcs-module-jellyfin.php) | [Download](https://download.puqcloud.com/WHMCS/servers/PUQ_WHMCS-Jellyfin/) | [FAQ](https://faq.puqcloud.com/)
-
 # Description
 
-Thanks to the module, the company is able to offer public media services to its customers based on Jellyfin accounts.
+### Jellyfin module **[WHMCS](https://puqcloud.com/link.php?id=77)**
+#####  [Order now](https://puqcloud.com/whmcs-module-jellyfin.php) | [Download](https://download.puqcloud.com/WHMCS/servers/PUQ_WHMCS-Jellyfin/) | [Community](https://community.puqcloud.com/)
 
-The module is used to create customer accounts on the previously prepared Jellyfin server. The module enables You to define multiple public media packages and sell them at different prices. The module creates a customer account according to the selected package. The client can have many independent accounts in the media.
+## Jellyfin WHMCS module
 
->For the correct operation of the module, a pre-prepared Jellyfin installation is required (the module does not assist in the installation of the Jellyfin server and assumes that such installation is ready for operation through API.) Module use Jellyfin API to manage clients account.
+The **Jellyfin WHMCS module** turns your WHMCS into an automated platform for selling **Jellyfin media-server accounts**. Each WHMCS service is mapped to a Jellyfin user whose access is fully driven by the product configuration: which libraries the user can see, what playback and transcoding is allowed, Live TV access, SyncPlay, streaming bitrate limit, maximum active sessions and failed-login lockout.
 
->We have prepared a detailed installation manual for the module, including all the steps needed to implement the module, including the preparation of the Jellyfin server, including all installation steps such as PHP, Jellyfin, SSL certificates etc.
+Account provisioning is automatic — on **Create** the module generates the username and password, creates the Jellyfin user and applies the configured policy. **Suspend / Unsuspend / Change package / Terminate** keep the Jellyfin user in sync with the WHMCS service lifecycle. Clients manage everything from the WHMCS client area.
 
-### Functions:
+![Client area overview](img/08-client-area.png)
 
-- Auto create and deploy client account
-- The module uses only the API to manage the accounts
-- Module supports multilingualism **(Arabic, Azerbaijani, Catalan, Chinese, Croatian, Czech, Danish, Dutch, English, Estonian, Farsi, French, German, Hebrew, Hungarian, Italian, Macedonian, Norwegian, Polish, Romanian, Spanish, Swedish, Turkish, Ukrainian)**
-- The module shows all user info: enabled user libraries, active devices etc.
-- Link to instructions for setting up the service in the client area.
+---
 
-### Available options in the admin panel:
+## What's new in v3.0
 
-- Create users
-- Suspend users
-- Terminate users
-- Unsuspend users
-- Change users password
-- Change Package
-- Drop all devices
-- Unblock user
-- API connection status
-- List of active devices
-- List of enabled user libraries
+Version 3.0 is a **complete rewrite** that brings the module up to the modern PUQ standard:
 
-### Available options in the client panel:
+- 🎨 **Redesigned client area** — a beautiful, fully **AJAX** card-based interface: a gradient status hero, account credentials with copy/show, live usage bars (sessions, failed logins), library chips and an active-devices table. No page reloads — every action reports back with a toast.
+- 🗂️ **Dynamic library picker** — libraries are now loaded **live from your Jellyfin server** as checkboxes with *Select all* and *Reload*, instead of typing names by hand.
+- 🔌 **Jellyfin 10.11.10+ ready** — switched to the modern `Authorization: MediaBrowser` scheme and the current API routes, so the module keeps working on Jellyfin **10.12 / 10.13** where the legacy authorization is removed.
+- 🧰 **One-click self-service** — clients can **drop all devices** and **unblock** their account straight from the client area.
+- ⚙️ **Streamlined configuration** — all product settings live in a single, injected settings panel; upgrading from v2.x needs **no reconfiguration**.
+- 🛡️ **Hardened & diagnosable** — PHP 7.4 / 8.1 / 8.2+ clean, null-safe, with full error logging to the WHMCS Module Log for easy troubleshooting.
+- 🌍 **25 languages** — the full interface is translated.
 
-- List of active devices
-- List of enabled user libraries
-- Drop all devices
-- Unblock user
-- Change the Jellyfin user password
+---
 
-- - - - - -
+## Main features
 
->WHMCS minimal version: 8 +
+- **Automatic provisioning** — Jellyfin user created on service activation with generated credentials
+- **Full lifecycle sync** — suspend, unsuspend, change package, terminate and change password
+- **Library access control** — grant all libraries or a selected set per product
+- **Playback & transcoding policy** — media playback, audio/video transcoding, remux without re-encoding, force remote-source transcoding
+- **Feature access** — Live TV access and recording management
+- **Session & security limits** — streaming bitrate limit, maximum active sessions, failed-login lockout
+- **SyncPlay & downloads** — SyncPlay access level and media-download control
+- **Flexible credentials** — configurable password generation and standard or macro-based custom username templates
+- **AJAX client area** — modern card-based UI showing status, credentials, allowed libraries, active devices and sessions
+- **Self-service actions** — clients can drop all devices and unblock their account
+- **Admin service tab** — user status, libraries, package info and active devices on the WHMCS service page
+- **Multi-language** — 25 languages
+- **License verification** — built-in online/offline license system with admin homepage alerts
 
->Jellyfin minimal version: 10+
+---
 
-![image](https://github.com/user-attachments/assets/c89336fb-c9f6-4235-9ed9-8904f8d1e374)
+## System requirements & compatibility
 
-[![2023-11-02_14-37.png](https://doc.puq.info/uploads/images/gallery/2023-11/scaled-1680-/2023-11-02-14-37.png)](https://doc.puq.info/uploads/images/gallery/2023-11/2023-11-02-14-37.png)
+The module supports **PHP 7.4, 8.1 and 8.2+**, shipped as a separate ionCube build per PHP version. Download the build that matches the PHP version your WHMCS runs on.
+
+| WHMCS version | PHP version | Module build |
+|---------------|-------------|--------------|
+| WHMCS 8.x | 7.4 | `php74` |
+| WHMCS 8.x | 8.1 | `php81` |
+| WHMCS 8.x | 8.2 | `php82` |
+| WHMCS 9.x | 8.2 | `php82` |
+
+> Match the build to the **server's PHP version**, not to the WHMCS version. PHP 8.2 and any newer PHP → always use `php82`. Requires ionCube Loader v13+.
+
+A reachable **Jellyfin server, version 10.11.10 or newer**, with an administrator account and API key is required. The module uses the modern `Authorization: MediaBrowser` scheme and the current user/password API routes, so it stays compatible with Jellyfin 10.12/10.13 where the legacy authorization headers are removed.
